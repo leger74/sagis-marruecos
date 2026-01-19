@@ -1,0 +1,262 @@
+:root {
+    --terracota: #C84B31;
+    --indigo-opaco: rgba(26, 55, 77, 0.9);
+    --blanco-transparente: rgba(255, 255, 255, 0.15); /* Muy ligero para ver el fondo */
+    --blanco-tarjeta: rgba(255, 255, 255, 0.95);
+    --verde-exito: #2D5A27;
+    --rojo-alerta: #A33B3B;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    /* Imagen de fondo para toda la página */
+    background-image: url('../imagenes/dunas1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
+}
+
+/* HEADER */
+.header-aventura {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: rgba(0,0,0,0.2); /* Filtro para el texto inicial */
+}
+
+.contenedor-presentacion {
+    background: var(--indigo-opaco);
+    padding: 2.5rem;
+    color: white;
+    max-width: 850px;
+    border-radius: 8px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+.logo1 {
+    width: 70px;
+    filter: brightness(0) invert(1);
+    margin-bottom: 2rem;
+}
+.titulo-principal {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    margin-bottom: 0.5rem;
+}
+
+.divisor-decorativo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 1.5rem 0;
+}
+
+.linea { height: 1px; width: 60px; background: #D9B382; }
+.punto { height: 6px; width: 6px; background: #D9B382; transform: rotate(45deg); }
+
+.cuerpo-texto p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* BLOQUES DE DESTINO */
+.bloque-destino {
+    padding: 5rem 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.contenido-destino {
+    background: var(--indigo-opaco);
+    color: white;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    padding: 20px;
+}
+
+.contenido-destino img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+.contenido-destino h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.3rem;
+    margin: 2rem 1rem 1rem;
+    color: #D9B382;
+}
+
+.contenido-destino p {
+    padding: 0 2rem 3rem;
+    font-size: 1.1rem;
+}
+
+
+/* ============================================================
+   EFECTO DE ZOOM EN IMÁGENES (HOVER)
+   ============================================================ */
+
+/* 1. Preparamos la imagen base */
+.contenido-destino img {
+    /* ... mantén tus propiedades anteriores (width, height, object-fit) ... */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Transición suave y profesional */
+    cursor: pointer;
+}
+
+/* 2. Efecto cuando el cursor pasa por encima */
+.contenido-destino:hover img {
+    transform: scale(1.1); /* Aumenta un 10% el tamaño */
+}
+
+/* 3. Aseguramos que el contenedor no se deforme */
+.contenido-destino {
+    overflow: hidden; /* Esto es vital: corta la imagen para que crezca "dentro" del bloque */
+}
+
+/* Opcional: Si quieres que el título también reaccione ligeramente */
+.contenido-destino:hover h2 {
+    color: white; /* Opcional: cambio de color al pasar el mouse */
+    transition: color 0.3s ease;
+}
+
+
+
+
+/* SECCIÓN LOGÍSTICA (FONDO IGUAL AL BODY) */
+.seccion-logistica {
+    background: transparent; /* Permite ver el fondo del body */
+    padding: 6rem 5%;
+}
+
+.itinerario-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    background: rgba(26, 55, 77, 0.85); /* Pequeña placa para leer el título */
+    padding: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    color: white;
+}
+
+.itinerario-header h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+.grid-itinerario {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tarjeta-logistica {
+    background: var(--blanco-tarjeta); /* Tarjetas sólidas para lectura perfecta */
+    padding: 2rem;
+    border-radius: 12px;
+    border-top: 6px solid var(--terracota);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.tarjeta-logistica h3 {
+    margin-bottom: 1.2rem;
+    color: #1A374D;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+.tarjeta-logistica ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tarjeta-logistica li {
+    margin-bottom: 0.7rem;
+    font-size: 1rem;
+}
+
+.destacado-verde { border-top-color: var(--verde-exito); }
+.destacado-rojo { border-top-color: var(--rojo-alerta); }
+
+.cta-final {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.btn-reserva {
+    display: inline-block;
+    background: var(--terracota);
+    color: white;
+    padding: 1.5rem 3.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.footer-simple {
+    background: rgba(0,0,0,0.8);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+
+
+/* ============================================================
+   SOLUCIÓN PARA BLOQUE DE CONTENIDO EN MÓVIL (COMPACTO)
+   ============================================================ */
+
+@media (max-width: 768px) {
+    /* 1. Ajustamos el bloque principal */
+    .bloque-destino {
+        padding: 2rem 1rem; /* Reducimos el espacio exterior del bloque */
+    }
+
+    .contenido-destino {
+        border-radius: 12px; /* Bordes un poco más finos en móvil */
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5); /* Sombra más marcada para que resalte */
+    }
+
+    /* 2. La imagen ocupa menos espacio vertical para que el texto suba */
+    .contenido-destino img {
+        height: 220px; /* Reducimos altura para compactar */
+    }
+
+    /* 3. Título: Eliminamos el exceso de margen superior */
+    .contenido-destino h2 {
+        font-size: 1.6rem; /* Tamaño más cómodo para móvil */
+        margin: 1.2rem 1rem 0.5rem; /* Margen muy ajustado: Arriba | Lados | Abajo */
+        line-height: 1.2;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Evita que se vea deslucido */
+    }
+
+    /* 4. Párrafo: Quitamos los grandes espacios laterales */
+    .contenido-destino p {
+        padding: 0 1.2rem 1.8rem; /* Relleno ajustado: Arriba | Lados | Abajo */
+        font-size: 0.95rem; /* Un pelín más pequeño para que no ocupe tanto */
+        line-height: 1.5;
+        text-align: left; /* Alineación a la izquierda suele verse más limpio en móvil */
+        margin: 0;
+        opacity: 0.95; /* Color más sólido para mejor lectura */
+    }
+
+    /* 5. Eliminamos espacios muertos entre elementos */
+    .contenido-destino * {
+        margin-bottom: 0; 
+    }
+}

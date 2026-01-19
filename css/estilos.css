@@ -260,3 +260,54 @@ body {
         margin-bottom: 0; 
     }
 }
+
+
+/* ============================================================
+   AJUSTE DE SEGURIDAD PARA MÓVILES (TEXTO LARGO)
+   ============================================================ */
+@media (max-width: 768px) {
+    
+    /* 1. Evitamos que el header choque con el primer article */
+    .header-aventura {
+        height: auto; /* Cambiamos de 100vh a auto para que crezca con el texto */
+        min-height: 100vh; /* Pero que como mínimo ocupe toda la pantalla */
+        padding: 60px 20px; /* Espacio arriba y abajo para que respire */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* 2. Ajustamos la caja de presentación para que no sea tan ancha */
+    .contenedor-presentacion {
+        padding: 25px 15px; /* Menos espacio interno */
+        margin-top: 20px;
+        width: 100%; /* Que use todo el ancho disponible */
+    }
+
+    /* 3. Corregimos el texto "deslucido" y los espacios extraños */
+    .cuerpo-texto p {
+        font-size: 1rem; /* Un pelín más pequeño para que quepa mejor */
+        line-height: 1.5; /* Espaciado entre líneas óptimo */
+        text-align: left; /* Alineado a la izquierda evita huecos blancos gigantes */
+        padding: 0 5px; /* Evita que las letras toquen los bordes de la caja azul */
+        margin: 0;
+        word-spacing: -1px; /* Junta un poquito las palabras para evitar "ríos" de espacios */
+    }
+
+    .titulo-principal {
+        font-size: 1.8rem; /* Ajustamos el título para que no ocupe 5 líneas */
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+
+    /* 4. Separación de seguridad con el primer artículo */
+    main {
+        margin-top: 0; 
+    }
+
+    /* 5. Ajuste de los bloques de destino para que no se peguen al header */
+    .bloque-destino {
+        padding: 2rem 1rem;
+        scroll-margin-top: 20px; /* Por si añades anclas en el futuro */
+    }
+}
